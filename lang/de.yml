@@ -2,3 +2,15 @@ de:
   brandcom\ElementalSiteSearch\SearchForm:
     SEARCH: Suche
     GO: Los
+  ElementalFluentSearch:
+    searchedFor: 'Ihre Suche nach &quot;{$Query}&quot;'
+    readMore: 'Mehr erfahren über &quot;{$Title}&quot;'
+    readMoreTitle: 'Mehr erfahren über {$Title}'
+    noResults: 'Leider hat Ihre Suchanfrage keine Ergebnisse geliefert.'
+    next: 'weiter'
+    nextTitle: 'zur nächsten Seite'
+    previous: 'zurück'
+    previousTitle: 'zur vorherigen Seite'
+    viewPageNumber: 'Zeige Seite'
+    page: 'Seite'
+    of: 'von'
