@@ -1,0 +1,16 @@
+en:
+  brandcom\ElementalSiteSearch\SearchForm:
+    SEARCH: Search
+    GO: Go
+  ElementalFluentSearch:
+    searchedFor: 'You searched for &quot;{$Query}&quot;'
+    readMore: 'Read more about &quot;{$Title}&quot;'
+    readMoreTitle: 'Read more about {$Title}'
+    noResults: 'Sorry, your search query did not return any results.'
+    next: 'Next'
+    nextTitle: 'View the next page'
+    previous: 'Previous'
+    previousTitle: 'View the previous page'
+    viewPageNumber: 'View page number'
+    page: 'Page'
+    of: 'of'

@@ -1,0 +1,15 @@
+---
+Name: elemental_site_search_fluent
+After: 'elemental'
+---
+SilverStripe\CMS\Controllers\ContentController:
+  extensions:
+    - brandcom\ElementalSiteSearch\ContentControllerSearchExtension
+
+SilverStripe\CMS\Model\SiteTree:
+  extensions:
+    - brandcom\ElementalSiteSearch\SiteTreeSearchExtension
+
+SilverStripe\ORM\DatabaseAdmin:
+  extensions:
+    - brandcom\ElementalSiteSearch\DatabaseAdminExtension
