@@ -4,7 +4,7 @@
     <% if $Query %>
         <p class="searchQuery">
             <strong>
-                <%t ElementalFluentSearch.searchedFor, "You searched for &quot;{$Query}&quot;" Query=$Query %>
+                <%t ElementalFluentSearch.searchedFor, "You searched for &quot;{query}&quot;" query=$Query %>
             </strong>
         </p>
     <% end_if %>
@@ -24,16 +24,16 @@
                     <a
                         class="readMoreLink"
                         href="$Link"
-                        title="<%t ElementalFluentSearch.readMoreTitle "Read more about {$Title}" Title=$Title %>"
+                        title="<%t ElementalFluentSearch.readMoreTitle "Read more about {title}" title=$Title %>"
                     >
-                        <%t ElementalFluentSearch.readMore "Read more about &quot;{$Title}&quot;" Title=$Title %>
+                        <%t ElementalFluentSearch.readMore "Read more about &quot;{title}&quot;" title=$Title %>
                     </a>
                 </li>
             <% end_loop %>
         </ul>
     <% else %>
         <p>
-            <%t ElementalFluentSearch.noResults %>
+            <%t ElementalFluentSearch.noResults "Sorry, your search query did not return any results." %>
         </p>
     <% end_if %>
 
@@ -43,18 +43,18 @@
                 <a
                     class="next"
                     href="$Results.NextLink"
-                    title="<%t ElementalFluentSearch.nextTitle %>"
+                    title="<%t ElementalFluentSearch.nextTitle "View the next page" %>"
                 >
-                    <%t ElementalFluentSearch.next %>
+                    <%t ElementalFluentSearch.next "Next" %>
                 </a>
             <% end_if %>
             <% if $Results.NotFirstPage %>
                 <a
                     class="prev"
                     href="$Results.PrevLink"
-                    title="<%t ElementalFluentSearch.previousTitle %>"
+                    title="<%t ElementalFluentSearch.previousTitle "View the previous page" %>"
                 >
-                    <%t ElementalFluentSearch.previous %>
+                    <%t ElementalFluentSearch.previous "previous" %>
                 </a>
             <% end_if %>
             <span>
@@ -64,7 +64,7 @@
                     <% else %>
                         <a
                             href="$Link"
-                            title="<%t ElementalFluentSearch.viewPageNumber %> $PageNum"
+                            title="<%t ElementalFluentSearch.viewPageNumber "View page number" %> $PageNum"
                         >
                             $PageNum
                         </a>
@@ -72,8 +72,8 @@
                 <% end_loop %>
             </span>
             <p>
-                <%t ElementalFluentSearch.page %> $Results.CurrentPage
-                <%t ElementalFluentSearch.of %> $Results.TotalPages
+                <%t ElementalFluentSearch.page "Page" %> $Results.CurrentPage
+                <%t ElementalFluentSearch.of  "of" %> $Results.TotalPages
             </p>
         </div>
     <% end_if %>
