@@ -3,11 +3,11 @@
     "license": "MIT",
     "type": "silverstripe-vendormodule",
     "require": {
-        "php": "^8.1 || ^8.2 || ^8.3",
+        "php": "^8.2 || ^8.3",
         "silverstripe/framework": "^5",
         "silverstripe/cms": "^5",
-        "dnadesign/silverstripe-elemental": "^4 || ^5",
-        "tractorcow/silverstripe-fluent": "^6 || ^7"
+        "dnadesign/silverstripe-elemental": "^5",
+        "tractorcow/silverstripe-fluent": "^7"
     },
     "autoload": {
         "psr-4": {
