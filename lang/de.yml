@@ -3,9 +3,9 @@ de:
     SEARCH: Suche
     GO: Los
   ElementalFluentSearch:
-    searchedFor: 'Ihre Suche nach &quot;{$Query}&quot;'
-    readMore: 'Mehr erfahren über &quot;{$Title}&quot;'
-    readMoreTitle: 'Mehr erfahren über {$Title}'
+    searchedFor: 'Ihre Suche nach &quot;{query}&quot;'
+    readMore: 'Mehr erfahren über &quot;{title}&quot;'
+    readMoreTitle: 'Mehr erfahren über {title}'
     noResults: 'Leider hat Ihre Suchanfrage keine Ergebnisse geliefert.'
     next: 'weiter'
     nextTitle: 'zur nächsten Seite'
