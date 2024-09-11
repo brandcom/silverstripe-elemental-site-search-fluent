@@ -4,7 +4,7 @@
     <% if $Query %>
         <p class="searchQuery">
             <strong>
-                <%t ElementalFluentSearch.searchedFor, "You searched for &quot;{$Query}&quot;" Query=$Query%>
+                <%t ElementalFluentSearch.searchedFor, "You searched for &quot;{$Query}&quot;" Query=$Query %>
             </strong>
         </p>
     <% end_if %>
