@@ -3,7 +3,7 @@ en:
     SEARCH: Search
     GO: Go
   ElementalFluentSearch:
-    searchedFor: 'You searched for &quot;{query}&quot;'
+    searchedFor: 'Your search for &quot;{query}&quot;'
     readMore: 'Read more about &quot;{title}&quot;'
     readMoreTitle: 'Read more about {title}'
     noResults: 'Sorry, your search query did not return any results.'
