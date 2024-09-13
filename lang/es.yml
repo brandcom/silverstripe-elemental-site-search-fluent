@@ -1,0 +1,16 @@
+es:
+  brandcom\ElementalSiteSearch\SearchForm:
+    SEARCH: Buscar
+    GO: Iniciar
+  ElementalFluentSearch:
+    searchedFor: 'Su búsqueda de &quot;{query}&quot;'
+    readMore: 'Más información sobre &quot;{title}&quot;'
+    readMoreTitle: 'Más información sobre {title}'
+    noResults: 'Lo sentimos, su búsqueda no ha dado ningún resultado.'
+    next: 'Siguiente'
+    nextTitle: 'Ver la página siguiente'
+    previous: 'Anterior'
+    previousTitle: 'Ver la página anterior'
+    viewPageNumber: 'Ver página'
+    page: 'Página'
+    of: 'de'
