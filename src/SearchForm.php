@@ -77,20 +77,20 @@ class SearchForm extends Form
         // Build query
         $sql = new SQLSelect();
         $sql->setDistinct(true);
-        $sql->setFrom('SiteTree_Localised_Live');
-        $sql->addSelect(
-            "(( 2 * (MATCH (`SiteTree_Localised_Live`.`Title`) AGAINST ('{$keywords}' IN BOOLEAN MODE))) +( 0.5 * (MATCH (`SiteTree_Localised_Live`.`SearchContent`) AGAINST ('{$keywords}' IN BOOLEAN MODE))) +( 1.2 * (MATCH (`SiteTree_Localised_Live`.`Keywords`) AGAINST ('{$keywords}' IN BOOLEAN MODE)))) AS Relevance"
+        $sql->setFrom('SiteTree_Live');
+        $sql->addSelect("SiteTree_Live.ID as PageID,
+            (( 2 * (MATCH (`SiteTree_Localised_Live`.`Title`) AGAINST ('{$keywords}' IN BOOLEAN MODE))) +( 0.5 * (MATCH (`SiteTree_Localised_Live`.`SearchContent`) AGAINST ('{$keywords}' IN BOOLEAN MODE))) +( 1.2 * (MATCH (`SiteTree_Localised_Live`.`Keywords`) AGAINST ('{$keywords}' IN BOOLEAN MODE)))) AS Relevance"
+        );
+        $sql->addLeftJoin(
+            'SiteTree_Localised_Live',
+            "`SiteTree_Localised_Live`.`RecordID` = `SiteTree_Live`.`ID` AND `SiteTree_Localised_Live`.`Locale` = '$current_locale'"
         );
         $sql->setWhere(
-            "(MATCH (`SiteTree_Localised_Live`.`Title`,`SiteTree_Localised_Live`.`SearchContent`,`SiteTree_Localised_Live`.`Keywords`) AGAINST ('{$keywords}' IN BOOLEAN MODE)) AND `SiteTree_Localised_Live`.`Locale` = '$current_locale'"
+            "(MATCH (`SiteTree_Localised_Live`.`Title`,`SiteTree_Localised_Live`.`SearchContent`,`SiteTree_Localised_Live`.`Keywords`) AGAINST ('{$keywords}' IN BOOLEAN MODE)) AND SiteTree_Live.ShowInSearch <> 0"
         );
         $sql->setOrderBy("Relevance", "DESC");
-        $sql->setOrderBy(["Relevance" => "DESC"]);
 
         $this->extend('updateSearchQuery', $sql);
-
-        // Add permission check
-        //$sql->addWhere(["ShowInSearch" => true]);
 
         $totalCount = $sql->count();
         $sql->setLimit($pageLength, $start);
