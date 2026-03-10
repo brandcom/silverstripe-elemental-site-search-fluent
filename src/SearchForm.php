@@ -10,8 +10,8 @@ use SilverStripe\Forms\Form;
 use SilverStripe\Forms\FormAction;
 use SilverStripe\Forms\TextField;
 use SilverStripe\Forms\Validator;
-use SilverStripe\ORM\ArrayList;
-use SilverStripe\ORM\PaginatedList;
+use SilverStripe\Model\List\ArrayList;
+use SilverStripe\Model\List\PaginatedList;
 use SilverStripe\ORM\Queries\SQLSelect;
 use SilverStripe\ORM\DB;
 use TractorCow\Fluent\State\FluentState;
@@ -23,11 +23,11 @@ class SearchForm extends Form
     ];
 
     public function __construct(
-        RequestHandler $controller = null,
+        ?RequestHandler $controller = null,
         $name = 'SearchForm',
-        FieldList $fields = null,
-        FieldList $actions = null,
-        Validator $validator = null
+        ?FieldList $fields = null,
+        ?FieldList $actions = null,
+        ?Validator $validator = null
     ) {
         $fields = FieldList::create(
             TextField::create('query', _t(__CLASS__ . '.SEARCH', 'Search'))
