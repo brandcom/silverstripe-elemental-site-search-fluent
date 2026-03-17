@@ -31,8 +31,8 @@ class SearchForm extends Form
     ) {
         $fields = FieldList::create(
             TextField::create('query', _t(__CLASS__ . '.SEARCH', 'Search'))
-                ->setAttribute('placeholder', _t(__CLASS__ . '.SEARCH', 'Search'))
-                ->setAttribute('minlength', ('4')),
+            ->setAttribute('placeholder', _t(__CLASS__ . '.SEARCH', 'Search'))
+            ->setAttribute('minlength', ('4')),
         );
         $actions = FieldList::create(
             FormAction::create('results', _t(__CLASS__ . '.GO', 'Go'))
@@ -115,8 +115,9 @@ class SearchForm extends Form
     public function getSearchQuery(): ?string
     {
         $request = $this->getRequestHandler()->getRequest();
-
-        return $request->requestVar('query');
+        $query = $request->requestVar('query');
+        $query = preg_replace('/[^\w\s\+\-"äöüÄÖÜß]/u', ' ', $query);
+        return $query;
     }
 
     /**
@@ -132,9 +133,12 @@ class SearchForm extends Form
         $splitWords = explode(" ", $keywords);
         $newWords = [];
 
-        do {
-            $word = current($splitWords);
-            if ($word[1] == '"') {
+        foreach ($splitWords as $word) {
+            if (empty($word)) {
+                continue;
+            }
+            
+            if ($word[0] == '"') {
                 while (next($splitWords) !== false) {
                     $subword = current($splitWords);
                     $word .= ' ' . $subword;
@@ -143,10 +147,12 @@ class SearchForm extends Form
                     }
                 }
             } else {
-                $word .= '*';
+                if (!in_array($word[0], ['+', '-'])) {
+                    $word .= '*';
+                }
             }
             $newWords[] = $word;
-        } while (next($splitWords) !== false);
+        }
 
         return implode(" ", $newWords);
     }
