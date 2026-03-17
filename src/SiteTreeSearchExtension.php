@@ -51,7 +51,6 @@ class SiteTreeSearchExtension extends Extension
 
     public function onBeforeWrite()
     {
-        parent::onBeforeWrite();
         $this->getOwner()->SearchContent = $this->collateSearchContent();
     }
 
